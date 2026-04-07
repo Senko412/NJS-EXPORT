@@ -1,0 +1,1658 @@
+/* --- RESET & BASIC LAYOUT --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; 
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* --- 1. TOP BAR --- */
+.top-bar-wrapper { background-color: #2b2725; width: 100%; }
+.top-bar-content { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; color: white; font-size: 12px; }
+.top-bar-right { display: flex; align-items: center; gap: 15px; }
+
+.login-link {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.login-link:hover {
+    text-decoration: underline;
+    color: #ccc;
+}
+
+.currency-selector { background-color: #fff; color: #333; border: 1px solid #ccc; padding: 2px 5px; font-size: 12px; cursor: pointer; border-radius: 2px; }
+.top-bar-content input { padding: 6px; border: none; width: 100px; }
+
+/* --- 2. LOGO & NAVIGATION --- */
+header { text-align: center; padding: 30px 0; }
+
+/* Đã thêm màu đen và chữ in hoa cho logo */
+.logo { 
+    font-family: 'Impact', sans-serif; 
+    font-size: clamp(40px, 10vw, 70px); 
+    margin: 0;
+    padding: 20px 15px;
+    color: #222; 
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.subtitle { background: #000; color: #fff; display: inline-block; padding: 5px 15px; font-weight: bold; font-size: clamp(10px, 3vw, 16px); }
+
+/* NAV STYLES */
+nav { margin-top: 20px; text-align: center; position: relative; }
+.nav-links { list-style: none; padding: 0; margin: 0; display: inline-flex; justify-content: center; }
+.nav-item { position: relative; margin: 0 15px; }
+.nav-item > a { text-decoration: none; color: #666; font-size: 14px; display: block; padding-bottom: 10px; }
+
+/* --- 3. DROPDOWN MENU STYLE --- */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 160px;
+    z-index: 2000;
+    display: none;
+    text-align: left;
+}
+.dropdown-menu a {
+    display: block;
+    padding: 8px 20px;
+    text-decoration: none;
+    color: #555;
+    font-size: 13px;
+    white-space: nowrap;
+}
+.dropdown-menu a:hover { background-color: #f9f9f9; color: #000; }
+.nav-item:hover .dropdown-menu { display: block; }
+
+/* --- 4. LAYOUT CHÍNH --- */
+.main-container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 15px; box-sizing: border-box; }
+.promo { text-align: center; margin: 30px 0; line-height: 1.6; }
+.special { color: #ff00ff; text-decoration: underline; font-weight: bold; }
+.discount { color: #ff4500; font-style: italic; font-weight: bold; font-size: 22px; }
+.hero-img { display: block; width: 100%; height: auto; }
+.cyan-line { height: 2px; background-color: #7fcdb8; width: 100%; margin: 40px 0; }
+
+footer { text-align: left; padding: 20px 0 120px 0; }
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { text-decoration: none; color: #555; font-size: 13px; }
+.footer-bottom { text-align: center; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; }
+
+/* --- CSS NÚT MAILING LIST (Góc dưới bên trái - Hình 1) --- */
+.mailing-trigger-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.mailing-trigger-btn {
+    background: transparent;
+    border: none;
+    padding: 12px 15px 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+}
+
+.mailing-trigger-close {
+    background: transparent;
+    border: none;
+    padding: 12px 15px;
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    border-left: 1px solid #eee;
+}
+
+.mailing-trigger-close:hover {
+    color: #000;
+    background-color: #f9f9f9;
+}
+
+
+/* --- CSS MODAL MAILING LIST (Form đăng ký - Hình 2) --- */
+.mailing-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 3000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mailing-form-card {
+    background: #fff;
+    width: 90%;
+    max-width: 400px;
+    padding: 40px 30px;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.mailing-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+}
+
+.mailing-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.mailing-subtitle {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.mailing-form .input-group {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Kỹ thuật làm nhãn đè lên đường viền */
+.mailing-form .input-group label {
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    background: #fff;
+    padding: 0 5px;
+    font-size: 12px;
+    color: #666;
+    z-index: 10;
+}
+
+.mailing-form .input-group input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.mailing-form .input-group input:focus {
+    border-color: #2b7bc6; /* Màu xanh khi focus giống hình */
+}
+
+.mailing-form .input-group:first-child label {
+    color: #999;
+}
+.mailing-form .input-group:first-child input {
+    border-color: #2b7bc6; /* Giả lập trạng thái đang focus vào First name như hình */
+}
+
+
+.mailing-submit-btn {
+    width: 100%;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.mailing-terms {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* --- CSS CHAT WIDGET --- */
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.chat-window {
+    width: 320px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    margin-bottom: 15px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.chat-header {
+    background-color: #1a202c; /* Màu xanh đen */
+    color: white;
+    padding: 20px 20px 40px 20px;
+    text-align: left;
+}
+
+.chat-header h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.chat-header p {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #e2e8f0;
+}
+
+.chat-body-wrapper {
+    background-color: #fff;
+    padding: 0 15px 20px 15px;
+}
+
+.chat-input-wrapper {
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    border: 1px solid #cbd5e1;
+    margin-top: -25px; 
+    position: relative;
+    z-index: 2;
+}
+
+.chat-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.chat-input::placeholder { color: #94a3b8; }
+
+.chat-send-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #cbd5e1;
+    cursor: pointer;
+}
+
+.chat-body {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.instant-answers-title {
+    font-size: 13px;
+    color: #0f172a;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.track-order-btn {
+    width: 100%;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #475569;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Nút bấm Chat (hình oval bo tròn) */
+.chat-button-toggle {
+    background-color: #1a202c; /* Màu xanh đen đồng bộ */
+    color: white;
+    padding: 14px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(236, 224, 224, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.chat-btn-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Trạng thái khi mở (biến thành nút tròn có chữ X) */
+.chat-button-toggle.chat-open {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border-radius: 50%;
+}
+/* --- CSS CART MODAL --- */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 3000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-modal {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.payment-icons { margin-top: 15px; display: flex; justify-content: center; gap: 15px; }
+.payment-icons img { height: 20px; filter: grayscale(0.5); }
+
+/* --- MOBILE RESPONSIVE --- */
+.mobile-header-tools, .mobile-nav { display: none !important; }
+
+@media (max-width: 768px) {
+    .top-bar-wrapper, .logo, .subtitle, #mainNav { display: none !important; }
+    .desktop-only { display: none; }
+    
+    .mobile-header-tools {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+        background: #fff;
+        border-bottom: 1px solid #e8e8e8;
+        position: sticky;
+        top: 0;
+        z-index: 1100;
+    }
+
+    .logo-mobile { font-family: 'Impact', sans-serif; font-size: 22px; text-decoration: none; color: #000; }
+    .menu-toggle { background: none; border: none; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+
+    .mobile-nav {
+        background-color: #3d3530;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        z-index: 1000;
+        display: none; 
+    }
+    .mobile-nav.active { display: block !important; }
+
+    .mobile-nav ul { list-style: none; padding: 0; margin: 0; }
+    .mobile-nav li { border-bottom: 1px solid #4e4540; }
+    .mobile-nav li a, .menu-title {
+        display: block; padding: 18px 20px; color: #fff; text-decoration: none;
+        font-size: 13px; font-weight: bold; text-transform: uppercase;
+    }
+
+    .submenu-mobile { display: none; background-color: #ffffff; }
+    .nav-item-mobile.open .submenu-mobile { display: block; }
+    .submenu-mobile li a { color: #333 !important; padding-left: 35px; font-weight: normal; }
+
+    .menu-title { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    .search-bar-item { padding: 15px 20px; }
+    .search-bar-item input { width: 100%; padding: 10px; border: none; border-radius: 3px; }
+}
+.logo-link-main { text-decoration: none; color: inherit; }
+
+/* Xóa mọi khoảng cách mặc định của trình duyệt */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Đảm bảo toàn trang web luôn tràn viền 100% */
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Cấm cuộn ngang để không bị thanh cuộn thừa */
+  font-family: Arial, sans-serif; /* Bạn có thể đổi font sau */
+}
+
+/* Đặt lại root của React để nó chiếm toàn bộ không gian */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+/* --- CSS CHO MODAL GIỎ HÀNG --- */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 3000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-modal {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+/* --- CSS CHO MODAL LOGIN SHOP --- */
+.login-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 4000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    background: #ffffff;
+    width: 90%;
+    max-width: 440px;
+    padding: 30px 40px 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+.login-close {
+    position: absolute;
+    top: 15px; right: 20px;
+    background: none; border: none;
+    font-size: 28px; cursor: pointer; color: #999;
+}
+
+.login-header-text {
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.login-content-box { text-align: left; }
+
+.login-title {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.login-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Nút Continue with shop (Màu tím) */
+.btn-shop-login {
+    width: 100%;
+    background-color: #5a31f4;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+.btn-shop-login:hover { background-color: #4a26c9; }
+
+/* Đường kẻ "or" */
+.login-divider {
+    text-align: center;
+    position: relative;
+    margin: 25px 0;
+}
+.login-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 1px;
+    background-color: #e5e5e5;
+    z-index: 1;
+}
+.login-divider span {
+    background: #ffffff;
+    padding: 0 15px;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Ô nhập Email */
+.login-email-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d9381e; /* Viền đỏ cam mặc định theo ảnh */
+    border-radius: 6px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    outline: none;
+}
+.login-email-input:focus {
+    box-shadow: 0 0 0 1px #d9381e;
+}
+
+/* Nút Continue (Màu cam/đỏ) */
+.btn-continue-login {
+    width: 100%;
+    background-color: #d9381e;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+.btn-continue-login:hover { background-color: #be2e17; }
+
+/* Checkbox */
+.login-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+.login-checkbox input[type="checkbox"] {
+    accent-color: #d9381e; /* Đổi màu tick xanh thành đỏ cam */
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Chữ footer (Terms) */
+.login-footer-text {
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+}
+.login-footer-text a {
+    color: #777;
+    text-decoration: underline;
+}
+/* --- CSS CHO MODAL SHOP PAY (MỚI) --- */
+.shop-login-card {
+    background: #ffffff;
+    width: 90%;
+    max-width: 400px;
+    padding: 40px 30px 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    position: relative;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.shop-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.shop-logo-circle {
+    width: 65px; 
+    height: 65px;
+    border-radius: 50%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    color: white; 
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.purple-bg { 
+    background-color: #5a31f4; 
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.black-bg { 
+    background-color: #f5f5f5;
+    color: #1a1a1a; 
+    font-family: 'Impact', sans-serif; 
+    letter-spacing: -1px;
+    font-size: 14px;
+    line-height: 1.1;
+}
+
+.shop-dots { 
+    color: #e5e5e5; 
+    letter-spacing: 2px; 
+    font-size: 20px;
+}
+
+.shop-login-title { 
+    font-size: 26px; 
+    font-weight: 800; 
+    margin-bottom: 8px; 
+    color: #000; 
+}
+
+.shop-login-subtitle { 
+    font-size: 15px; 
+    color: #555; 
+    margin-bottom: 25px; 
+}
+
+.shop-email-input {
+    width: 100%; 
+    padding: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 25px; 
+    font-size: 16px; 
+    margin-bottom: 15px; 
+    outline: none;
+    transition: 0.2s;
+}
+
+.shop-email-input:focus { 
+    border-color: #5a31f4; 
+    box-shadow: 0 0 0 1px #5a31f4;
+}
+
+.btn-shop-continue {
+    width: 100%; 
+    background-color: #5a31f4; 
+    color: white; 
+    border: none;
+    border-radius: 25px; 
+    padding: 16px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    cursor: pointer;
+    margin-bottom: 30px; 
+    transition: 0.2s;
+}
+
+.btn-shop-continue:hover { background-color: #4a26c9; }
+
+.shop-passkey { 
+    font-weight: bold; 
+    font-size: 14px; 
+    cursor: pointer; 
+    margin-bottom: 30px; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+.shop-terms { 
+    font-size: 12px; 
+    color: #666; 
+    line-height: 1.5; 
+    margin-bottom: 30px; 
+    padding: 0 10px; 
+}
+
+.shop-terms a { color: #666; text-decoration: underline; }
+
+.shop-lang { 
+    font-size: 13px; 
+    color: #555; 
+    cursor: pointer; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+/* =========================================
+   CSS CHO TRANG SẢN PHẨM (FRAMES GRID)
+   ========================================= */
+.frames-page {
+    padding: 20px 0 60px 0;
+}
+
+.breadcrumb {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.frames-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.frames-header h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+}
+
+.filters label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+}
+
+.filters select {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: none;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 20px;
+}
+
+.product-card {
+    text-align: left;
+}
+
+/* ĐÃ XÓA NỀN XANH Ở ĐÂY */
+.product-img-wrapper {
+    position: relative;
+    margin-bottom: 12px;
+    overflow: hidden;
+    background: transparent; 
+}
+
+/* ĐÃ XÓA HIỆU ỨNG MULTIPLY Ở ĐÂY */
+.product-img-wrapper img {
+    width: 100%;
+    display: block;
+    mix-blend-mode: normal; 
+}
+
+.add-to-cart-btn {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 12px 0;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: bottom 0.3s ease;
+}
+
+.product-img-wrapper:hover .add-to-cart-btn {
+    bottom: 0;
+}
+
+.product-name {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-price {
+    font-size: 13px;
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .frames-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+}
+
+@media (max-width: 500px) {
+    .product-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   CSS CHO GIỎ HÀNG (THIẾT KẾ MỚI RỘNG HƠN)
+   ========================================= */
+.cart-modal-wide {
+    background: #ffffff;
+    width: 95%;
+    max-width: 950px;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    max-height: 90vh;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+}
+
+.cart-table-header {
+    display: flex;
+    border-top: 1px solid #7fcdb8; 
+    border-bottom: 1px solid #7fcdb8;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cart-item-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 0 30px 0;
+    border-bottom: 1px solid #7fcdb8;
+}
+
+.col-product { flex: 5; }
+.col-price { flex: 2; font-size: 14px; }
+.col-qty { flex: 2; }
+.col-total { flex: 1; text-align: right; font-weight: bold; font-size: 14px; }
+
+.item-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+.item-info img {
+    width: 120px;
+    height: auto;
+    border: 1px solid #eee;
+}
+
+.item-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4a154b; 
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.item-remove {
+    background: none;
+    border: none;
+    color: #4a154b;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0;
+}
+.item-remove:hover { text-decoration: underline; }
+
+.col-qty input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    text-align: center;
+}
+
+.cart-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.cart-note a {
+    color: #4a154b;
+    font-size: 14px;
+    text-decoration: none;
+}
+.cart-note a:hover { text-decoration: underline; }
+
+.cart-summary {
+    width: 450px;
+    text-align: right;
+}
+
+.subtotal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.subtotal-price {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.tax-note {
+    font-size: 13px;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #4a154b;
+    color: #4a154b;
+    padding: 12px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-outline:hover { background: #f9f9f9; }
+
+.btn-checkout {
+    background: #4a154b;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-paypal {
+    width: 100%;
+    background: #ffc439;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #003087;
+    font-style: italic;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .cart-table-header { display: none; }
+    .cart-item-row { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .cart-footer { flex-direction: column; gap: 20px; }
+    .cart-summary { width: 100%; text-align: left; }
+    .subtotal { justify-content: flex-start; }
+    .cart-actions { flex-direction: column; }
+}
+
+/* =========================================
+   CSS CHO TRANG CHI TIẾT SẢN PHẨM MỚI
+   ========================================= */
+.product-details-page {
+    padding: 10px 0 60px 0;
+}
+
+.product-details-page .breadcrumb {
+    margin-bottom: 30px;
+}
+
+.product-details-page .breadcrumb a {
+    color: #555;
+    text-decoration: none;
+}
+
+.product-details-page .breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.product-details-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.product-images {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ĐÃ XÓA NỀN XANH Ở TRANG CHI TIẾT */
+.product-images img {
+    width: 100%;
+    border: 1px solid #eee;
+    background: transparent;
+    mix-blend-mode: normal;
+}
+
+.product-info {
+    flex: 1;
+    text-align: left;
+}
+
+.product-info h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.product-info .price-detail {
+    font-size: 26px;
+    font-weight: bold;
+    color: #4a008e; 
+    margin-bottom: 25px;
+}
+
+.btn-add-to-cart-large {
+    background-color: #4a008e; 
+    color: white;
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 40px;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+}
+
+.btn-add-to-cart-large:hover {
+    background-color: #3a006f; 
+}
+
+.product-specs {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.product-specs p {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .product-details-container {
+        flex-direction: column;
+    }
+    
+    .product-info h1 {
+        font-size: 22px;
+    }
+}
+/* --- Tùy chỉnh hiển thị cho các bộ lọc (Filters) --- */
+.filters select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    cursor: pointer;
+    min-width: 150px;
+    
+    /* Cố gắng ép chiều cao tối đa cho dropdown xổ xuống */
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.filters select:focus {
+    border-color: #2b7bc6; /* Đổi màu viền khi click vào */
+    box-shadow: 0 0 5px rgba(43, 123, 198, 0.3);
+}
+
+.filters select option {
+    padding: 10px;
+    background-color: white;
+    color: #333;
+}
+
+/* Đổi màu nền của option khi người dùng di chuột qua (tùy trình duyệt có hỗ trợ hay không) */
+.filters select option:hover {
+    background-color: #1a62c6;
+    color: white;
+}
+
+/* Màu nền cho option đang được chọn */
+.filters select option:checked {
+    background-color: #1a62c6;
+    color: white;
+}
+/* =========================================
+   CSS CHO LIGHTBOX (XEM ẢNH PHÓNG TO)
+   ========================================= */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fbfbfb; /* Màu nền xám/trắng nhạt */
+    z-index: 4500; /* Nằm dưới khung chat (5000) nhưng nổi lên trên web */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    transition: 0.2s;
+}
+
+.lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    padding: 20px;
+    transition: 0.2s;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-prev:hover, .lightbox-next:hover, .lightbox-close:hover {
+    color: #000;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain; /* Đảm bảo ảnh không bị méo */
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15); /* Tạo hiệu ứng bóng nổi cho ảnh */
+    user-select: none;
+}
+/* =========================================
+   CSS CHO THANH TÌM KIẾM (SEARCH DROPDOWN)
+   ========================================= */
+
+/* Bao bọc ô input để dropdown xổ xuống đúng vị trí */
+.search-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Khung bảng kết quả tìm kiếm xổ xuống (Nền đen giống ảnh) */
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 280px; /* Độ rộng bảng kết quả */
+    background-color: #222; /* Màu xám đen */
+    color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    margin-top: 10px;
+    z-index: 9999;
+    list-style: none;
+    padding: 8px 0;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+/* Tạo cái mũi tên tam giác nhỏ chỉ lên trên ô input */
+.search-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    border-width: 0 7px 7px 7px;
+    border-style: solid;
+    border-color: transparent transparent #222 transparent;
+}
+
+/* Từng dòng tên sản phẩm trong bảng */
+.search-item {
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    /* Rút gọn chữ nếu tên quá dài (thêm dấu ...) */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Đổi màu xám sáng hơn khi di chuột vào dòng kết quả */
+.search-item:hover {
+    background-color: #3b3734; 
+}
+
+/* Giao diện khi gõ sai / không tìm thấy sản phẩm */
+.search-no-result {
+    padding: 12px 18px;
+    font-size: 13px;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Tùy chỉnh thanh cuộn (Scrollbar) cho bảng tìm kiếm gọn gàng hơn */
+.search-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+.search-dropdown::-webkit-scrollbar-track {
+    background: #222; 
+    border-radius: 6px;
+}
+.search-dropdown::-webkit-scrollbar-thumb {
+    background: #555; 
+    border-radius: 6px;
+}
+.search-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #777; 
+}
+/* =========================================
+   CSS CHO TRANG KẾT QUẢ TÌM KIẾM
+   ========================================= */
+.search-page {
+    padding: 40px 0 80px 0;
+    text-align: left;
+}
+
+.search-page-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Khung nhập liệu tìm kiếm ở trang kết quả */
+.search-page-input-wrapper {
+    display: flex;
+    margin-bottom: 40px;
+    border: 1px solid #ccc;
+    max-width: 600px;
+}
+
+.search-page-input-wrapper input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+/* Nút tìm kiếm màu tím */
+.search-page-input-wrapper button {
+    background-color: #4a008e; 
+    color: white;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.search-page-input-wrapper button:hover {
+    background-color: #3a006f;
+}
+
+/* Danh sách kết quả */
+.search-results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.search-result-item {
+    display: flex;
+    gap: 20px;
+    border-top: 1px solid #7fcdb8; /* line xanh ngọc */
+    padding-top: 30px;
+    align-items: flex-start;
+}
+
+.search-result-item img {
+    width: 200px;
+    height: auto;
+    border: 1px solid #eee;
+}
+
+.search-result-info {
+    flex: 1;
+}
+
+.search-result-info h3 {
+    font-size: 16px;
+    color: #4a008e; /* Chữ màu tím */
+    margin-bottom: 10px;
+}
+
+.search-result-info h3:hover {
+    text-decoration: underline;
+}
+
+.search-result-price {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Giới hạn phần mô tả chỉ hiện 3 dòng cho gọn */
+.search-result-desc {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .search-result-item {
+        flex-direction: column;
+    }
+    .search-result-item img {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+/* =========================================
+   CSS CHO TRANG TERMS / SHIPPING INFO
+   ========================================= */
+.page-content-container {
+    max-width: 900px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
+    line-height: 1.8;
+    color: #333;
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+.page-content-container h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.page-content-container p {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.page-content-container strong {
+    font-weight: 700;
+    color: #000;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    margin-bottom: 45px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.info-table th, .info-table td {
+    border: 1px solid #7fcdb8; /* Đường viền xanh ngọc */
+    padding: 12px 18px;
+    text-align: left;
+}
+
+.info-table th {
+    background-color: #fcfcfc;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.info-table tr:hover {
+    background-color: #f9f9f9;
+}
+/* =========================================
+   CSS CHO NHÃN SOLD OUT (HẾT HÀNG)
+   ========================================= */
+.sold-out-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4a008e; /* Màu tím đặc trưng */
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 10;
+    pointer-events: none; /* Đảm bảo vẫn click được vào ảnh ở bên dưới */
+}
+/* =========================================
+   CSS KHUNG VIDEO PHONG THỦY XE ĐẠP
+   ========================================= */
+.video-section {
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 25 20px;
+}
+
+.video-feng-shui-frame {
+    background: #1a1a1a;
+    border: 4px solid #4a008e; /* Viền tím NJS đặc trưng */
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 15px 35px rgba(127, 205, 184, 0.4), inset 0 0 10px rgba(0,0,0,0.8); /* Bóng râm tỏa ánh xanh ngọc bích */
+    position: relative;
+}
+
+/* Tạo hiệu ứng đinh tán/ốc vít kim loại của sườn xe đạp ở 4 góc */
+.video-feng-shui-frame::before,
+.video-feng-shui-frame::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(135deg, #ccc, #666);
+    border-radius: 50%;
+    box-shadow: 0 0 2px #000, inset 0 1px 2px #fff;
+    z-index: 10;
+}
+
+.video-feng-shui-frame::before {
+    top: -6px; 
+    left: 20px;
+}
+
+.video-feng-shui-frame::after {
+    top: -6px; 
+    right: 20px;
+}
+
+.bike-video {
+    border-radius: 6px;
+    display: block;
+    width: 100%;
+    border: 2px solid #333;
+    background-color: #000;
+}
+/* =========================================
+   REACT ANIMATIONS & HOVER EFFECTS
+   ========================================= */
+
+/* 1. Animation Fade In (Trang mờ dần hiện ra) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* 2. Animation Slide Up (Trượt từ dưới lên mượt mà) */
+@keyframes slideUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+.animate-slide-up {
+    animation: slideUp 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* 3. Animation Pop In (Bật nảy lên cho Modal/Popup) */
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.02); }
+    100% { opacity: 1; transform: scale(1); }
+}
+.animate-pop-in {
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* 4. Animation Slide Right (Trượt từ phải sang cho Giỏ hàng) */
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-right {
+    animation: slideRight 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* =========================================
+   HOVER EFFECTS (Hiệu ứng khi di chuột)
+   ========================================= */
+
+/* Hiệu ứng nảy lên cho thẻ sản phẩm */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.product-img-wrapper img {
+    transition: transform 0.4s ease;
+}
+.product-img-wrapper:hover img {
+    transform: scale(1.05); /* Phóng to ảnh nhẹ khi lướt chuột */
+}
+
+/* Hiệu ứng cho nút bấm chung */
+button {
+    transition: all 0.2s ease-in-out;
+}
+button:hover {
+    filter: brightness(1.1); /* Làm sáng nút khi hover */
+}
+.btn-add-to-cart-large:hover, .btn-checkout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(74, 0, 142, 0.3);
+}
+
+/* Hiệu ứng gạch chân cho link Navigation */
+.nav-item > a {
+    position: relative;
+}
+.nav-item > a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #4a008e;
+    transition: width 0.3s ease;
+}
+.nav-item:hover > a::after {
+    width: 100%;
+}
