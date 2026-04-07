@@ -7478,7 +7478,209 @@ const framesData = [
 
 
 
-    
+    { 
+
+
+
+
+
+
+
+        id: 65, 
+
+
+
+
+
+
+
+        name: "Kiyo Miyazawa // Black Blue White Tricolor // 52cm", 
+
+
+
+
+
+
+
+        price: 650.00,
+
+
+
+
+
+        images: [
+
+
+
+
+
+
+
+           "https://www.njs-export.com/cdn/shop/products/IMG_9819_6cbcbab1-474b-4394-b1dc-00dfedcf2e43_2048x2048@2x.jpg?v=1666920451", 
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9820_1285050d-e86e-4b9a-af3a-43dc0c14c464_2048x2048@2x.jpg?v=1666920450",         
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9821_dc4e44f6-757a-4ed2-9bc8-dc44c256b57a_2048x2048@2x.jpg?v=1666920450",         
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9822_2048x2048@2x.jpg?v=1666920451",         
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9823_2048x2048@2x.jpg?v=1666920452",         
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9824_2048x2048@2x.jpg?v=1666920452",         
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9825_2048x2048@2x.jpg?v=1666920452",         
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9826_5aae7328-4c3c-46ed-9c63-5a2fcdb4347f_2048x2048@2x.jpg?v=1666920451",         
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9827_62582a89-20dd-49b6-b0d2-ef7d11d4c251_2048x2048@2x.jpg?v=1666920450",         
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9828_8d2de868-04f3-4644-9961-abf681305710_2048x2048@2x.jpg?v=1666920450",         
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9829_45295c9c-ea94-44f6-9aff-00f3e5492841_2048x2048@2x.jpg?v=1666920471",        
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9830_4812ac43-49ed-4f17-9900-f5689f8dc280_2048x2048@2x.jpg?v=1666920471",        
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9831_20437c0a-6467-44a7-87dc-7cff6a9bf767_2048x2048@2x.jpg?v=1666920471",
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9832_7649383b-5860-4bd5-a8af-dc7ad44a74ec_2048x2048@2x.jpg?v=1666920471",        
+
+
+
+
+
+
+
+            "https://www.njs-export.com/cdn/shop/products/IMG_9833_5ef9dd07-1583-45fd-8acf-7be7a0cb49c4_2048x2048@2x.jpg?v=1666920471"
+
+        
+
+
+
+
+
+
+
+        ], 
+
+
+
+
+
+
+
+        specs: [
+
+
+
+
+
+
+
+            "Color/Black Blue White Tricolor ", "Headset/Hatta Swan Super Deluxe", "BB/Hatta R9400", "Seat tube/52cm c-t", "Top tube/52.5cm c-c", "Rear/120mm", "Seatpost diameter/27.2mm", "Standover/78cm" , "Model Year/2008",
+
+
+
+
+
+
+
+            "Condition/This NJS Keirin track frame has some small chipped paint spots otherwise still in clean condition!! No dents!"
+
+
+
+
+
+
+
+        ],
+
+        
+
+
+
+
+
+
+
+    },
 
 
 
